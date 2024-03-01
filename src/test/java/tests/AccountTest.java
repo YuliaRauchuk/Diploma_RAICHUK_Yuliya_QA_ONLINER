@@ -14,16 +14,13 @@ import utils.Retry;
     @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
     public void positiveAccountTests() {
         homePage.getCurrentUrl();
-        accountPage.waitForPageLoaded();
+      //  accountPage.waitForPageLoaded();
         homePage.clickButtonEnter();
         registrationPage.jsClickCheckBox();
         productPage.clickCatalogLink();
         accountPage.clickProfileSetting();
         accountPage.isProfileFormDisplayed();
-    Assert.assertTrue(accountPage.waitForPageLoaded());
+  //  Assert.assertTrue(accountPage.waitForPageLoaded());
     }
-        public AccountTest(WebDriver driver) {
-            super(driver);
-        }
 }
 

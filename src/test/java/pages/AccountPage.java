@@ -22,6 +22,6 @@ import tests.BaseTest;
         driver.findElement(PROFILE_FORM).isDisplayed();
     }
         public AccountPage(WebDriver driver) {
-            super(driver);
+            super();
         }
 }

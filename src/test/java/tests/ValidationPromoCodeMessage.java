@@ -21,9 +21,6 @@ public class ValidationPromoCodeMessage extends BaseTest {
         registrationPage.setEmail(EMAIL);
         registrationPage.setPassword(PASSWORD);
     }
-    public ValidationPromoCodeMessage(WebDriver driver) {
-        super(driver);
-    }
 }
 //добавляем товар в карзину и пытаемся применить промокод
 //sendkey :"SELE"

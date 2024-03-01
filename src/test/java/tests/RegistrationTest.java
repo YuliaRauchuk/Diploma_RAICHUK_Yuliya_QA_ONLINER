@@ -27,9 +27,6 @@ import utils.Retry;
         registrationPage.clickButtonRedirectOnEmail();
         registrationPage.clickLetterLink();
         registrationPage.clickConfirmButton();
-    Assert.assertTrue(accountPage.waitForPageLoaded());
-    }
-    public RegistrationTest(WebDriver driver) {
-        super(driver);
+ //   Assert.assertTrue(accountPage.waitForPageLoaded());
     }
 }

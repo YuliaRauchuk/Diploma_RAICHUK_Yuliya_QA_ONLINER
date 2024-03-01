@@ -3,11 +3,8 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 
-//public class AddAccountPhoto extends BaseTest {
-
-  //  public AddAccountPhoto(WebDriver driver) throws Exception {
-       // setUp((ITestContext) driver);
-   // }
+public class AddAccountPhoto extends BaseTest {
+}
 
     //@Override
    // public boolean waitForPageLoaded() {

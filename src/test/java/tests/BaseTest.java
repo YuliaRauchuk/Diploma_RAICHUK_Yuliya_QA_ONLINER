@@ -33,9 +33,6 @@ import java.util.concurrent.TimeUnit;
     protected ProductPage productPage;
     protected BasketPage basketPage;
 
-        public BaseTest(WebDriver driver) {
-            super();
-        }
 
         @BeforeClass(alwaysRun = true)
         public void setUp(ITestContext testContext) throws Exception {
@@ -81,9 +78,5 @@ import java.util.concurrent.TimeUnit;
         ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
         ((JavascriptExecutor) driver).executeScript("window.sessionStorage.clear();");
     }
-
-        protected boolean waitForPageLoaded() {
-            return false;
-        }
 
     }

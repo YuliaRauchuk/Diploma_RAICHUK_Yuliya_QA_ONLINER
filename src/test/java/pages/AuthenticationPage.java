@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
     @Log4j2
     public class AuthenticationPage extends BasePage {
 
-
     @Override
     public boolean waitForPageLoaded() {
         return false;
