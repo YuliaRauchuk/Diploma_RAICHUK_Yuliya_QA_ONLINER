@@ -9,9 +9,4 @@ import org.openqa.selenium.WebDriver;
     public AddProductPage(WebDriver driver) {
         super(driver);
     }
-
-    @Override
-    public boolean waitForPageLoaded() {
-        return false;
-    }
 }

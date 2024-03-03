@@ -16,7 +16,7 @@ import utils.Retry;
         homePage.getCurrentUrl();
       //  accountPage.waitForPageLoaded();
         homePage.clickButtonEnter();
-        registrationPage.jsClickCheckBox();
+        registrationPage.clickCheckBox();
         productPage.clickCatalogLink();
         accountPage.clickProfileSetting();
         accountPage.isProfileFormDisplayed();

@@ -4,10 +4,13 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.PropertyReader;
+
 
 
 @Log4j2
 public class LoginPage extends BasePage {
+    private final static String LOGIN_TAB = System.getenv().getOrDefault("LOGIN_TAB",PropertyReader.getProperty("profile.url"));
     private final static By EMAIL_INPUT = By.xpath("//div//input[@class='auth-input auth-input_primary auth-input_base auth-form__input auth-form__input_width_full']");
     private final static By PASSWORD_INPUT = By.xpath("//div//input[@class='auth-input auth-input_primary auth-input_base auth-form__input auth-form__input_width_full']");
     private final By LOGO_ELEMENT_NAME = By.xpath("//img[@class='onliner_logo']");
@@ -15,19 +18,24 @@ public class LoginPage extends BasePage {
     private final By REGISTRATION_LINK = By.xpath("//div//a[@class='auth-form__link auth-form__link_primary auth-form__link_small']");
 
 
-    @Override
-    public boolean waitForPageLoaded() {
-        return false;
+    public LoginPage(WebDriver driver) {
+        super(driver);
     }
 
     public String getCurrentUrl() {
-        return super.getCurrentUrl();
-    }
+     return super.getCurrentUrl();
+}
 
     @Step("Setting Email Tab Input")
     public void setEmailInput(String email) {
         log.info("Setting Email Tab Input");
         driver.findElement(EMAIL_INPUT).sendKeys(email);
+    }
+    @Step("Displayed Login Tab")
+    public boolean isDisplayedLoginTab() {
+        log.info("Displayed Login Tab");
+        driver.findElement(By.id(LOGIN_TAB)).isDisplayed();
+        return false;
     }
     @Step("Setting Password Input")
     public void setPasswordInput(String password) {
@@ -50,9 +58,6 @@ public class LoginPage extends BasePage {
     public void clickRegistrationLink() {
         log.info("Check Registration Link");
         driver.findElement(REGISTRATION_LINK).click();
-    }
-    public LoginPage(WebDriver driver) {
-        super(driver);
     }
 }
 

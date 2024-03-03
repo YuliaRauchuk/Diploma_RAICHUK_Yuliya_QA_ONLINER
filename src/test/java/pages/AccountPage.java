@@ -7,11 +7,16 @@ import org.openqa.selenium.WebDriver;
 import tests.BaseTest;
 
     @Log4j2
-    public class AccountPage extends BaseTest {
+    public class AccountPage extends BasePage{
+
     private final By PROFILE_SETTING = By.xpath("//div//a[@class='b-top-profile__settings']");
     private final By PROFILE_FORM = By.xpath("//div[@class='profile-form__anchor-list']");
 
-    @Step("Click Profile Setting")
+        public AccountPage(WebDriver driver) {
+            super(driver);
+        }
+
+        @Step("Click Profile Setting")
     public void clickProfileSetting() {
         log.info("Click Profile Setting");
         driver.findElement(PROFILE_SETTING).click();
@@ -21,7 +26,4 @@ import tests.BaseTest;
         log.info("Displayed Profile Form");
         driver.findElement(PROFILE_FORM).isDisplayed();
     }
-        public AccountPage(WebDriver driver) {
-            super();
-        }
 }

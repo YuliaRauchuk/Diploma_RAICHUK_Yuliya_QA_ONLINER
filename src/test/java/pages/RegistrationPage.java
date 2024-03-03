@@ -22,16 +22,14 @@ import utils.PropertyReader;
     public final static By CONFIRM_BUTTON = By.xpath("//*[@id=nu]/div[1]//div/span/a");
     public final static By PROFILE_FORM =By.xpath("//div[@class='profile-header__name']");
 
-    public RegistrationPage(WebDriver driver) {
+        public RegistrationPage(WebDriver driver) {
             super(driver);
         }
 
-    @Override
-    public boolean waitForPageLoaded() {
-        return false;
-    }
-
-    @Step("Setting Email Tab Input")
+        public String getCurrentUrl() {
+            return super.getCurrentUrl();
+        }
+        @Step("Setting Email Tab Input")
     public void setEmail(String email) {
         log.info("Setting Email Tab Input");
         driver.findElement(EMAIL_TAB).sendKeys(email);
@@ -48,9 +46,9 @@ import utils.PropertyReader;
         driver.findElement(DUPLICATE_PASSWORD).sendKeys(password);
     }
     @Step("Click check box")
-    public void jsClickCheckBox() {
+    public void clickCheckBox() {
         log.info("Click check box");
-        jsClick(driver.findElement(CHECK_BOX));
+        driver.findElement(CHECK_BOX).click();;
     }
     @Step("Click registration button")
     public void clickRegistrationButton() {
@@ -90,8 +88,4 @@ import utils.PropertyReader;
         driver.findElement(PROFILE_FORM).isDisplayed();
         return false;
     }
-    public String getCurrentUrl() {
-        return super.getCurrentUrl();
-    }
-
 }

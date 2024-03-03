@@ -16,13 +16,13 @@ import utils.Retry;
     @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
     public void positiveRegistrationTests() {
 
-        homePage.waitForPageLoaded();
+        //homePage.waitForPageLoaded();
         loginPage.clickRegistrationLink();
-        registrationPage.waitForPageLoaded();
+        //registrationPage.waitForPageLoaded();
         registrationPage.setEmail(EMAIL);
         registrationPage.setPassword(PASSWORD);
         registrationPage.setDuplicatePassword(PASSWORD);
-        registrationPage.jsClickCheckBox();
+        registrationPage.clickCheckBox();
         registrationPage.clickRegistrationButton();
         registrationPage.clickButtonRedirectOnEmail();
         registrationPage.clickLetterLink();

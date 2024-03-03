@@ -14,25 +14,25 @@ public class LoginTest extends BaseTest {
     public void positiveLoginTests() {
         homePage.setChrome();
         homePage.getCurrentUrl();
-        loginPage.waitForPageLoaded();
+        loginPage.isDisplayedLoginTab();
         loginPage.displayedLogoName();
         loginPage.clickButtonEntrance();
         //accountPage.waitForPageLoaded();
         loginPage.setEmailInput(EMAIL);
         loginPage.setPasswordInput(PASSWORD);
-    //Assert.assertTrue(accountPage.waitForPageLoaded());
+    Assert.assertTrue(loginPage.isDisplayedLoginTab());
 
     }
-        @DataProvider
+       @DataProvider
         public static Object[][] PositiveLoginTest() {
-            return new Object[][]{
+           return new Object[][]{
                     {" ", " "},
                     {" ", PASSWORD},
-                    {EMAIL, " "},
+                   {EMAIL, " "},
                     {"ray@google.com", PASSWORD},
                     {EMAIL, "1234567890"},
-                    {"ray@google.com", "1234567890"}
-            };
+                   {"ray@google.com", "1234567890"}
+           };
         }
     }
 

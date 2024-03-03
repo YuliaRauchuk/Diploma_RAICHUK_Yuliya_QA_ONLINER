@@ -13,11 +13,10 @@ public class HomePage extends BasePage {
     private final static String URL = System.getenv().getOrDefault("URL", PropertyReader.getProperty("url"));
     private final By BUTTON_ENTER = By.xpath("//div[@class='auth-bar__item auth-bar__item--text']");
 
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
 
-    @Override
-    public boolean waitForPageLoaded() {
-       return false;
-   }
     @Step("Setting url input")
     public String getCurrentUrl() {
         log.info("Setting url input");
@@ -33,8 +32,5 @@ public class HomePage extends BasePage {
     public void setChrome() {
         log.info("Setting Chrome");
         driver.findElement(By.id(CHROME)).click();
-    }
-    public HomePage(WebDriver driver) {
-        super(driver);
     }
 }

@@ -16,8 +16,8 @@ public class ValidationPromoCodeMessage extends BaseTest {
     @Description("Positive validation message test")
     @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
     public void positiveValidationMessageTests() {
-        homePage.waitForPageLoaded();
-        registrationPage.waitForPageLoaded();
+     //   homePage.waitForPageLoaded();
+        //registrationPage.waitForPageLoaded();
         registrationPage.setEmail(EMAIL);
         registrationPage.setPassword(PASSWORD);
     }

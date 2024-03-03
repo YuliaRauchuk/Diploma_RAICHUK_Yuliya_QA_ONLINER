@@ -13,9 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 @Log4j2
 public abstract class BasePage {
 
-   protected WebDriverWait wait;
+   protected static WebDriverWait wait;
 
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
 
     public BasePage(WebDriver driver) {
@@ -23,8 +23,6 @@ public abstract class BasePage {
         this.wait = new WebDriverWait(driver,30);
         PageFactory.initElements(driver, this);
     }
-
-    public abstract boolean waitForPageLoaded();
 
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
@@ -34,9 +32,9 @@ public abstract class BasePage {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);
     }
-    protected void waitForElementDisplayed(By elementLocator) {
-        log.debug(String.format("Wait is displayed element:  %s ", elementLocator));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(elementLocator));
+    protected void waitForElementDisplayed(By locator) {
+        log.debug(String.format("Wait is displayed element:  %s ", locator));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
     protected void jsScroll(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;

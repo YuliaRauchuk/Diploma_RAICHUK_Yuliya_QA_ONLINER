@@ -26,13 +26,12 @@ import org.openqa.selenium.WebDriver;
     //пустая карзина
     private final By CATALOG_LINK = By.xpath("//div//a[@href='https://catalog.onliner.by']");
 
+        public BasketPage(WebDriver driver) {
+            super(driver);
+        }
 
-    @Override
-    public boolean waitForPageLoaded() {
-        return false;
-    }
 
-    @Step("Displayed Basket Tab")
+        @Step("Displayed Basket Tab")
     public boolean isBasketTabDisplayed() {
         log.info("Displayed Basket Tab");
         driver.findElement(BASKET_TAB).isDisplayed();
@@ -94,8 +93,5 @@ import org.openqa.selenium.WebDriver;
     public void clickCatalogLink() {
         log.info("Click Catalog Link");
         driver.findElement(CATALOG_LINK).click();
-    }
-    public BasketPage(WebDriver driver) {
-            super(driver);
     }
 }
