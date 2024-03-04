@@ -1,9 +1,7 @@
 ![Onliner.by](https://github.com/YuliaRauchuk/Diploma_RAICHUK_Yuliya_QA_ONLINER/blob/master/ONLINER-LOGO.webp)
 
 ## **Description of Product** 
-Belarusian website, which includes media, a marketplace of goods and services, and a forum.
-
-## It is an independent, non-state media and initially positioned itself as a platform. The portal received registration as a media outlet on August 26, 2019. According to the research company Gemius, in 2020 the portal covered 52.08% of the Belarusian Internet audience. According to statistics, 60% of its audience are people aged 25 to 34 years.
+Belarusian website, which includes media, a marketplace of goods and services, and a forum. It is an independent, non-state media and initially positioned itself as a platform. The portal received registration as a media outlet on August 26, 2019. According to the research company Gemius, in 2020 the portal covered 52.08% of the Belarusian Internet audience. According to statistics, 60% of its audience are people aged 25 to 34 years.
 
 
 ## **Preconditions**
