@@ -40,7 +40,7 @@ and click on the registration button. Confirm the registration link on a valid e
 | Lombok                  | 1.18.24     |
 | Log4j                   | 2.19.0      |
 | TestNG                  | 7.4.0       |
-| Selenium                | 3.141.59    |
+| Selenium                | 4.18.1      |
 
 ###Instruction for running tests:
 - mvn clean test for running default suite - SmokeTest.xml
