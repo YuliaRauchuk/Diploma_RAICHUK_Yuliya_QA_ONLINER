@@ -3,7 +3,6 @@ package tests;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.Retry;
@@ -12,21 +11,19 @@ import utils.Retry;
     public class RegistrationTest extends BaseTest {
 
     @Attachment
-    @Description("Positive registration test")
+    @Description("Positive Registration test")
     @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
-    public void positiveRegistrationTests() {
-
-        //homePage.waitForPageLoaded();
-        loginPage.clickRegistrationLink();
-        //registrationPage.waitForPageLoaded();
+    public void positiveRegistrationTests() throws IndexOutOfBoundsException {
+        loginPage.clickButtonEntrance();
+        registrationPage.clickRegistrationLink();
         registrationPage.setEmail(EMAIL);
         registrationPage.setPassword(PASSWORD);
-        registrationPage.setDuplicatePassword(PASSWORD);
+        registrationPage.setDuplicatePassword(DUPLICATION_PASSWORD);
         registrationPage.clickCheckBox();
         registrationPage.clickRegistrationButton();
-        registrationPage.clickButtonRedirectOnEmail();
-        registrationPage.clickLetterLink();
-        registrationPage.clickConfirmButton();
- //   Assert.assertTrue(accountPage.waitForPageLoaded());
+    Assert.assertTrue(registrationPage.isDisplayedValidationMessage(),"       Такой пользователь уже зарегистрирован       ");
+        }
+    @Override
+    public void waitForPageLoaded() {
     }
 }

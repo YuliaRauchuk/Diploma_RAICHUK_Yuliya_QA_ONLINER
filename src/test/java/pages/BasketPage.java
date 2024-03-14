@@ -30,9 +30,13 @@ import org.openqa.selenium.WebDriver;
             super(driver);
         }
 
+        @Override
+        public String getCurrentUrl() {
 
+            return null;
+        }
         @Step("Displayed Basket Tab")
-    public boolean isBasketTabDisplayed() {
+    public boolean isDisplayedBasketTabDisplayed() {
         log.info("Displayed Basket Tab");
         driver.findElement(BASKET_TAB).isDisplayed();
         return false;

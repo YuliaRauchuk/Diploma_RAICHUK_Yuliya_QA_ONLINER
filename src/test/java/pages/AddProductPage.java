@@ -9,4 +9,10 @@ import org.openqa.selenium.WebDriver;
     public AddProductPage(WebDriver driver) {
         super(driver);
     }
+
+    @Override
+    public String getCurrentUrl() {
+
+        return null;
+    }
 }

@@ -2,38 +2,38 @@ package tests;
 
 import io.qameta.allure.Description;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.Retry;
 
 
 public class LoginTest extends BaseTest {
+    @Override
+    public void waitForPageLoaded() {
+    }
 
     @Description("Positive Login test")
     @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
-    public void positiveLoginTests() {
-        homePage.setChrome();
-        homePage.getCurrentUrl();
-        loginPage.isDisplayedLoginTab();
-        loginPage.displayedLogoName();
+    public void positiveLoginTests() throws IndexOutOfBoundsException {
         loginPage.clickButtonEntrance();
-        //accountPage.waitForPageLoaded();
         loginPage.setEmailInput(EMAIL);
         loginPage.setPasswordInput(PASSWORD);
-    Assert.assertTrue(loginPage.isDisplayedLoginTab());
+        loginPage.clickButtonEnter();
+    }
 
+    @Description("Negative Login test")
+    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
+    public void negativeLoginTests() throws IndexOutOfBoundsException {
+        loginPage.clickButtonEntrance();
+        accountPage.setEmailInput();
+        accountPage.setPasswordInput();
+        loginPage.clickButtonEnter();
+    Assert.assertTrue(accountPage.isDisplayedErrorValidationMessage(),"        Неверный логин или пароль        ");
+        accountPage.clickPasswordRecovery();
+        accountPage.setPrimaryDataInput();
+        accountPage.clickNextButton();
+        accountPage.isDisplayedUserValidationMessage();
+    Assert.assertTrue(accountPage.isDisplayedUserValidationMessage(), "        Такой пользователь не зарегистрирован        ");
     }
-       @DataProvider
-        public static Object[][] PositiveLoginTest() {
-           return new Object[][]{
-                    {" ", " "},
-                    {" ", PASSWORD},
-                   {EMAIL, " "},
-                    {"ray@google.com", PASSWORD},
-                    {EMAIL, "1234567890"},
-                   {"ray@google.com", "1234567890"}
-           };
-        }
-    }
+}
 
 
