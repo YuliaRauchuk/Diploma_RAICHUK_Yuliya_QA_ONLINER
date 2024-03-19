@@ -29,18 +29,18 @@ and click on the registration button. Confirm the registration link on a valid e
 
 ###Used in project
 
-| Stack                   | Version     |
-|-------------------------|-------------|
-| Allure TestNG           | 3.8.6       |
-| Apache Maven            | 1.9.8       |
-| Aspectj                 | 2.20.1      |
-| Java                    | 11.0.17     |
-| Jackson Dataformat yaml | 2.12.3      |
-| WebDriveManage          | 5.3.0       |
-| Lombok                  | 1.18.24     |
-| Log4j                   | 2.19.0      |
-| TestNG                  | 7.4.0       |
-| Selenium                | 4.18.1      |
+| Stack                   | Version|
+|-------------------------|--------|
+| Allure TestNG           | 3.8.6  |
+| Apache Maven            | 1.9.8  |
+| Aspectj                 | 2.20.1 |
+| Java                    | 11     |
+| Jackson Dataformat yaml | 2.12.3 |
+| WebDriveManage          | 5.3.0  |
+| Lombok                  | 1.18.24|
+| Log4j                   | 2.19.0 |
+| TestNG                  | 7.4.0  |
+| Selenium                | 4.18.1 |
 
 ###Instruction for running tests:
 - mvn clean test for running default suite - SmokeTest.xml

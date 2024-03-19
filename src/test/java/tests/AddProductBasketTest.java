@@ -26,18 +26,38 @@ import java.util.Arrays;
             productPage.clickCatalogLink();
             productPage.clickSearchString();
             productPage.setConstructionSet1();
-            productPage.clickCloseButton();//не получается нажать на крестик, чтобы очистить стороку поиска
+            productPage.clickCloseButton();// не найден селектор
+            productPage.clickCatalogLink();
+            //не получается нажать на крестик, чтобы очистить стороку поиска
             //не получается выбрать чек бокс, чтобы сравнить ексколько видов товара
             //не получается добавить выбранный товар в карзину, как следствие, проверить работу карзины и как отработывает биллинг
         }
 
-            @Description("Positive Test Number Products In Basket")
-            @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
-            public void positiveTestNumberProductsInBasket () throws IndexOutOfBoundsException {
-            }
-            @Description("Negative Test Promo Code In Basket")
-            @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
-            public void negativeTestPromoCodeInBasket () throws IndexOutOfBoundsException {
+        @Description("Positive Test Number Products In Basket")
+        @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
+        public void positiveTestNumberProductsInBasket () throws IndexOutOfBoundsException {
+            onlinerPage.isDisplayedOnlinerLogo();
+            productPage.clickCatalogLink();
+            productPage.clickWashingMachineLink();
+            productPage.checkWashingMachineInputName();
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+        @Description("Negative Test Promo Code In Basket")
+        @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
+        public void negativeTestPromoCodeInBasket () throws IndexOutOfBoundsException {
             }
 
             @Override

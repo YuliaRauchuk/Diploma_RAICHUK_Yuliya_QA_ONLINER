@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
     public class ProductPage extends BasePage{
 
+    private final By FRAME = By.xpath("//*[class='modal-iframe']");////*[class='modal-iframe']"
     private final By CATALOG_LINK = By.xpath("//a[@class='b-main-navigation__link']");
     private final By PRODUCT_LEGO = By.xpath("//li[@class='catalog-navigation-classifier__item catalog-navigation-classifier__item_brand'][1]");
     private final By CONSTRUCTION_SET_1 = By.xpath("//input[@name='query']");
@@ -21,8 +22,11 @@ import org.openqa.selenium.WebDriver;
     private  final By SEARCH_STRING_INPUT = By.xpath("//div[@id='fast-search']");
     private  final By PRODUCT_NAME_INPUT = By.xpath("//input[@name='query']");
     private final By CHECK_BOX_COMPARISON = By.cssSelector(".i-checkbox__faux");
-    private final By CLOSE_BUTTON = By.xpath("//span[@class='search__close']");
+    private final By CLOSE_BUTTON = By.xpath("//*[class='modal-iframe']");
     private final By IMG = By.xpath("//div[@class='result__item result__item_product']");
+    private final By WASHING_MACHINE_LINK = By.xpath("//li[@class='catalog-bar__item']//*[contains(text(),'Стиральные машины')]");
+
+    private final By WASHING_MACHINE_INPUT_NAME = By.xpath("//*[contains(text(),'           Стирально-сушильная машина Jacky's JW D8542B0BS         ')]");
     public ProductPage(WebDriver driver) {
         super(driver);
     }
@@ -33,14 +37,23 @@ import org.openqa.selenium.WebDriver;
         return null;
     }
     @Step("Check Catalog Link")
+    public void clickCloseButton() {
+        log.info("Check Catalog Link");
+        driver.switchTo().frame(FRAME.findElement(driver));
+        driver.findElement(CLOSE_BUTTON).click();
+        driver.switchTo().defaultContent();
+    }
+
+    @Step("Check Catalog Link")
     public void clickCatalogLink() {
         log.info("Check Catalog Link");
         driver.findElement(CATALOG_LINK).click();
     }
-    @Step("Check Catalog Link")
-    public void clickCloseButton() {
-        log.info("Check Catalog Link");
-        driver.findElement(CLOSE_BUTTON).click();
+
+    @Step("Check Washing Machine Input Name")
+    public void checkWashingMachineInputName() {
+        log.info("Check Washing Machine Input Name");
+        driver.findElement(WASHING_MACHINE_INPUT_NAME).click();
     }
     @Step("Displayed Img")
     public boolean isDisplayedConstructionSet1() {
@@ -99,6 +112,11 @@ import org.openqa.selenium.WebDriver;
     public void setProductNameInput() {
         log.info("Setting Product Name Input");
         driver.findElement(PRODUCT_NAME_INPUT).sendKeys("Lego");
+    }
+    @Step("Click Washing Machine Link")
+    public void clickWashingMachineLink() {
+        log.info("Click Washing Machine Link");
+        driver.findElement(WASHING_MACHINE_LINK).click();
     }
     @Step("Click Search Product Name")
     public void clickSearchProductName() {
