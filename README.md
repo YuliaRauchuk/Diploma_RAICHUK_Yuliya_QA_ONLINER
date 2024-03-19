@@ -30,7 +30,7 @@ and click on the registration button. Confirm the registration link on a valid e
 | Allure TestNG           | 3.8.6       |
 | Apache Maven            | 1.9.8       |
 | Aspectj                 | 2.20.1      |
-| Java                    | 11.0.17     |
+| Java                    | 11          |
 | Jackson Dataformat yaml | 2.12.3      |
 | WebDriveManage          | 5.3.0       |
 | Lombok                  | 1.18.24     |
