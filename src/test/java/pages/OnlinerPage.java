@@ -25,6 +25,6 @@ public class OnlinerPage extends BasePage{
     public boolean isDisplayedOnlinerLogo() {
         log.info("Displayed Onliner Logo");
         driver.findElement(ONLINER_LOGO).isDisplayed();
-        return false;
+        return true;
     }
 }

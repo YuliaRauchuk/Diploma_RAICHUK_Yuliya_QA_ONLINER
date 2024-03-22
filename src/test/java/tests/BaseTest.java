@@ -1,5 +1,6 @@
 package tests;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,11 +13,11 @@ import utils.PropertyReader;
 import utils.TestListener;
 
 import java.time.Duration;
-
+@Log4j2
 @Listeners({TestListener.class, InvokedListener.class})
 
     public abstract class BaseTest {
-        public final static String URL = System.getenv().getOrDefault("URL", PropertyReader.getProperty("url"));
+        public static String URL = System.getenv().getOrDefault("URL", PropertyReader.getProperty("url"));
         protected final static String EMAIL = System.getenv().getOrDefault("EMAIL", PropertyReader.getProperty("email"));
         protected final static String PASSWORD = System.getenv().getOrDefault("PASSWORD", PropertyReader.getProperty("password"));
         protected final static String DUPLICATION_PASSWORD =System.getenv().getOrDefault("DUPLICATION_PASSWORD", PropertyReader.getProperty("duplication.password"));

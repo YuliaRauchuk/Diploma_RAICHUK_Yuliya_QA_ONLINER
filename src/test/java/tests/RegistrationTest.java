@@ -12,7 +12,7 @@ import utils.Retry;
 
     @Attachment
     @Description("Positive Registration test")
-    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"positive"}, retryAnalyzer = Retry.class)
     public void positiveRegistrationTests() throws IndexOutOfBoundsException {
         loginPage.clickButtonEntrance();
         registrationPage.clickRegistrationLink();

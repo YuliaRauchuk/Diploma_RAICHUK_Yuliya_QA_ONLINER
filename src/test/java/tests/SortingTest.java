@@ -9,12 +9,10 @@ import utils.Retry;
 
 @Log4j2
     public class SortingTest extends BaseTest {
-    @Override
-    public void waitForPageLoaded() {
-    }
+
     @Attachment
     @Description("Negative Sorting Test")
-    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative"}, retryAnalyzer = Retry.class)
     public void negativeSortingTests() throws IndexOutOfBoundsException {
         productPage.clickCatalogLink();
         sortingPage.clickElectronicsButton();
@@ -25,8 +23,9 @@ import utils.Retry;
         sortingPage.waitForPageLoaded();
         Assert.assertTrue(sortingPage.isDisplayedInfoMessageCatalogInteraction(), "         Упс! У нас нет таких товаров, попробуйте изменить условия поиска       ");
     }
-
-    @Test(groups = {"smoke"}, retryAnalyzer = Retry.class)
+    @Attachment
+    @Description("Positive Sorting Test")
+    @Test(groups = {"positive"}, retryAnalyzer = Retry.class)
     public void positiveSortingTests() throws IndexOutOfBoundsException {
         productPage.clickCatalogLink();
         sortingPage.clickElectronicsButton();
@@ -39,5 +38,8 @@ import utils.Retry;
         sortingPage.clickCurrentInput();
         sortingPage.clickDropDown();
     Assert.assertTrue(sortingPage.isDisplayedInputDropDown());
+    }
+    @Override
+    public void waitForPageLoaded() {
     }
 }

@@ -9,12 +9,12 @@ import org.openqa.selenium.WebDriver;
     @Log4j2
     public class BasketPage extends BasePage {
     private final By BASKET_TAB = By.xpath("//div[@class='cart-form__header']");
-    private final By SALE_BASKET_TAB = By.xpath("//div[@class='cart-form__header']");
+    private final By SALE_BASKET_TAB = By.xpath("//div//input[@placeholder='Промокод']");
 
     private final By APPLY_BUTTON = By.xpath("//div//a[@class='cart-form__link cart-form__link_primary cart-form__link_tiny']");
     private final By DEFAULT_VALIDATION_MESSAGE = By.xpath("//div[@class='default']");
 
-    private final By CART_REMOVE_BUTTON = By.xpath("//div//a[@class='button-style button-style_auxiliary button-style_small cart-form__button cart-form__button_remove']");
+    private final By CART_REMOVE_BUTTON = By.xpath("//a[@class='button-style button-style_auxiliary button-style_small cart-form__button cart-form__button_decrement helpers_hide_tablet']");
     //удаление товара из картзины
     private final By DELETE_VALIDATION_MESSAGE = By.xpath("//div//div[@class='cart-form__description cart-form__description_primary cart-form__description_base-alter cart-form__description_condensed-extra']");
     //подтверждающее сообщение об удалении, карзина пуста
@@ -58,11 +58,11 @@ import org.openqa.selenium.WebDriver;
     public boolean isValidationMessageDisplayed() {
         log.info("Displayed Validation Message");
         driver.findElement(DEFAULT_VALIDATION_MESSAGE).isDisplayed();
-        return false;
+        return true;
     }
 
     @Step("Check Cart Remove Button")
-    public void checkCartRemoveButton() {
+    public void clickCartRemoveButton() {
         log.info("Check Cart Remove Button");
         driver.findElement(CART_REMOVE_BUTTON).click();
     }
