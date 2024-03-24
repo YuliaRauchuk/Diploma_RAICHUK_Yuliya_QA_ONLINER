@@ -10,13 +10,14 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage extends BasePage {
     private final static By EMAIL_INPUT = By.xpath("//div//input[@class='auth-input auth-input_primary auth-input_base auth-form__input auth-form__input_width_full']");
     private final static By PASSWORD_INPUT = By.xpath("//div//input[@type='password']");
-    private final By BUTTON_ENTRANCE = By.xpath("//div[@class='auth-bar__item auth-bar__item--text']");
-    private final By BUTTON_ENTER = By.xpath("//div[@class='auth-form__control auth-form__control_condensed-additional']");
+    private final By BUTTON_ENTRANCE = By.xpath("//*[@id='userbar']/div[1]/div/div/div[1]");
+    private final By BUTTON_ENTER = By.xpath("//*[@id='auth-container']/div/div[2]/div/form/div[3]");
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
+    @Step("Setting Email Tab Input")
     public void setEmailInput(String email) {
         log.info("Setting Email Tab Input");
         driver.findElement(EMAIL_INPUT).sendKeys("rauchukyulia86@gmail.com");
@@ -29,12 +30,12 @@ public class LoginPage extends BasePage {
     }
     @Step("Click Button Enter")
     public void clickButtonEnter() {
-        log.info("CheckButtonEnter");
+        log.info("ClickButtonEnter");
         driver.findElement(BUTTON_ENTER).click();
     }
-    @Step("Check button Entrance")
+    @Step("Click button Entrance")
     public void clickButtonEntrance() {
-        log.info("Check button Entrance");
+        log.info("Click button Entrance");
         driver.findElement(BUTTON_ENTRANCE).click();
     }
 }

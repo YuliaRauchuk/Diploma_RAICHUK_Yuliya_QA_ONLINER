@@ -12,34 +12,31 @@ import utils.Retry;
 
     @Attachment
     @Description("Negative Sorting Test")
-    @Test(groups = {"negative"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative","smoke"}, retryAnalyzer = Retry.class)
     public void negativeSortingTests() throws IndexOutOfBoundsException {
+        onlinerPage.isDisplayedOnlinerLogo();
         productPage.clickCatalogLink();
         sortingPage.clickElectronicsButton();
         sortingPage.clickEbookAndTableLink();
         sortingPage.clickEbookButton();
         sortingPage.setPriceFirstInput();
         sortingPage.setPriceNextInput();
-        sortingPage.waitForPageLoaded();
         Assert.assertTrue(sortingPage.isDisplayedInfoMessageCatalogInteraction(), "         Упс! У нас нет таких товаров, попробуйте изменить условия поиска       ");
     }
     @Attachment
     @Description("Positive Sorting Test")
-    @Test(groups = {"positive"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"positive","smoke"}, retryAnalyzer = Retry.class)
     public void positiveSortingTests() throws IndexOutOfBoundsException {
+        onlinerPage.isDisplayedOnlinerLogo();
         productPage.clickCatalogLink();
         sortingPage.clickElectronicsButton();
         sortingPage.clickEbookAndTableLink();
         sortingPage.clickEbookButton();
         sortingPage.clickDropDown();
         sortingPage.checkNewIndicator();
-        sortingPage.waitForPageLoaded();
         sortingPage.checkAdvertisementButton();
         sortingPage.clickCurrentInput();
         sortingPage.clickDropDown();
     Assert.assertTrue(sortingPage.isDisplayedInputDropDown());
-    }
-    @Override
-    public void waitForPageLoaded() {
     }
 }

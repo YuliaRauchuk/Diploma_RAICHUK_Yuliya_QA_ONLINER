@@ -21,20 +21,15 @@ public class HomePage extends BasePage {
     @Override
     @Attachment
 
-    @Step("Setting url input")
+   @Step("Setting url input")
    public String getCurrentUrl() {
        log.info("Setting url input");
         driver.findElement(By.id(URL)).click();
         return null;
     }
-   @Step("Check Button Enter")
+   @Step("Click Button Enter")
     public void clickButtonEnter() {
-     log.info("CheckButtonEnter");
+     log.info("ClickButtonEnter");
        driver.findElement(BUTTON_ENTER).click();
    }
-    //@Step("Check Google Start Page")
-   // public void checkGoogleStartPage() {
-     //   log.info("Check Google Start Page");
-        //driver.findElement(By.id(GOOGLE_START_PAGE)).click();//нужно исправлять в этом месте
-    //}
 }

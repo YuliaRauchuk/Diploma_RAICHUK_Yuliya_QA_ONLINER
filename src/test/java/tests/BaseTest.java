@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
@@ -27,22 +28,21 @@ import java.time.Duration;
         protected RegistrationPage registrationPage;
         protected HomePage homePage;
         protected AccountPage accountPage;
-        protected ConstructorLEGOPage authenticationPage;
         protected ProductPage productPage;
         protected GoogleAccountPage googleAccountPage;
         protected OnlinerPage onlinerPage;
         protected SortingPage sortingPage;
         protected BasketPage basketPage;
-        protected ConstructorLEGOPage constructorLEGOPage;
 
-        public abstract void waitForPageLoaded();
 
-            @BeforeClass(alwaysRun = true)
-            public void setUp(ITestContext testContext) throws Exception {
-                String browser = System.getProperty("browser", "chrome");
-                if (browser.equals("chrome")) {
-                    driver = new ChromeDriver();
-                } else if (browser.equals("Firefox")) {
+        @BeforeClass(alwaysRun = true)
+        public void setUp(ITestContext testContext) throws Exception {
+           String browser = System.getProperty("browser", "chrome");
+           if (browser.equals("chrome")) {
+               driver = new ChromeDriver();
+               ChromeOptions options =new ChromeOptions();
+               options.addArguments("headless", "window-size=1920.1080");
+           } else if (browser.equals("Firefox")) {
                     driver = new FirefoxDriver();
                 } else {
                     throw new Exception("Incorrect browser name");
@@ -56,12 +56,10 @@ import java.time.Duration;
                 accountPage = new AccountPage(driver);
                 productPage = new ProductPage(driver);
                 basketPage = new BasketPage(driver);
-                authenticationPage = new ConstructorLEGOPage(driver);
                 googleAccountPage = new GoogleAccountPage(driver);
                 onlinerPage = new OnlinerPage(driver);
                 sortingPage = new SortingPage(driver);
-                constructorLEGOPage =new ConstructorLEGOPage(driver);
-            }
+        }
 
     @BeforeMethod(alwaysRun = true)
     public void navigate() {

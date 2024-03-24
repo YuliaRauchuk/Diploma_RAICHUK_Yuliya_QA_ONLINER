@@ -1,17 +1,17 @@
 package tests;
 
-
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
+import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.Retry;
 
-
+@Log4j2
     public class AccountTest extends BaseTest {
     @Attachment
     @Description("Negative Account test")
-    @Test(groups = {"negative"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative","smoke"}, retryAnalyzer = Retry.class)
     public void negativeAccountTests() {
         loginPage.clickButtonEntrance();
         accountPage.setEmailInput();
@@ -22,7 +22,7 @@ import utils.Retry;
     }
     @Attachment
     @Description("Negative Test Empty Data")
-    @Test(groups = {"negative"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative","smoke"}, retryAnalyzer = Retry.class)
     public void negativeTestsEmptyData() {
         loginPage.clickButtonEntrance();
         accountPage.setEmailEmptyInput();
@@ -33,7 +33,7 @@ import utils.Retry;
         }
     @Attachment
     @Description("Negative Test Password Recovery" )
-    @Test(groups = {"negative"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative","smoke"}, retryAnalyzer = Retry.class)
     public void negativeTestPasswordRecovery() {
         loginPage.clickButtonEntrance();
         accountPage.clickPasswordRecoveryLink();
@@ -41,9 +41,4 @@ import utils.Retry;
         accountPage.clickNextButton();
    Assert.assertTrue(accountPage. isDisplayedPrimaryValidationMessage(), "         Такой пользователь не зарегистрирован     ");
         }
-        @Override
-        public void waitForPageLoaded() {
-
-        }
     }
-

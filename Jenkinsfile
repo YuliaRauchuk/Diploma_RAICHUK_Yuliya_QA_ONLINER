@@ -12,10 +12,10 @@ pipeline {
         stage('Run Selenium Tests') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/YuliaRauchuk/...'
+                git 'https://github.com/YuliaRauchuk/Diploma_RAICHUK_Yuliya_QA_ONLINER'
 
                 // Run Maven on an agent.
-                sh "mvn -Dmaven.test.failure.ignore=true clean test"
+                bat "mvn -Dmaven.test.failure.ignore=true clean test"
 
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"

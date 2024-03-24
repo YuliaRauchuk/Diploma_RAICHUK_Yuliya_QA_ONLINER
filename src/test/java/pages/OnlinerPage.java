@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class OnlinerPage extends BasePage{
 
-    private final static By ONLINER_LOGO = By.xpath("//div[@class='b-top-actions']");
+    private final static By ONLINER_LOGO = By.xpath("//div//a//img[@class='onliner_logo']");
     private final static By ONLINER_BAR_MENU  = By.xpath("//div//a[@class='b-top-profile__preview js-toggle-bar']");
 
     public OnlinerPage(WebDriver driver) {

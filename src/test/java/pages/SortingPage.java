@@ -30,11 +30,7 @@ public class SortingPage extends BasePage{
     public String getCurrentUrl() {
         return null;
     }
-    @Override
-    public boolean waitForPageLoaded() {
-        return false;
-    }
-        @Step("Click Onliner Bar Menu")
+    @Step("Click Onliner Bar Menu")
     public void clickOnlinerBarMenu() {
         log.info("Click Onliner Bar Menu");
         driver.findElement(ONLINER_BAR_MENU).click();
@@ -54,9 +50,9 @@ public class SortingPage extends BasePage{
         log.info("Click Click Drop Down");
         driver.findElement(DROP_DOWN).click();
     }
-    @Step("Click New Indicator")
+    @Step("Check New Indicator")
     public void checkNewIndicator() {
-        log.info("Click New Indicator()");
+        log.info("Check New Indicator()");
         driver.findElement(NEW_INDICATOR).click();
     }
     @Step("Click Cheap Indicator")
@@ -64,9 +60,9 @@ public class SortingPage extends BasePage{
         log.info("Click Cheap Indicator()");
         driver.findElement(CHEAP_INDICATOR).click();
     }
-    @Step("Click Advertisement Button")
+    @Step("Check Advertisement Button")
     public void checkAdvertisementButton() {
-        log.info("Click Advertisement Button");
+        log.info("Check Advertisement Button");
         driver.findElement(ADVERTISEMENT_BUTTON).click();
     }
     @Step("Click Current Input")

@@ -12,7 +12,7 @@ import utils.Retry;
 
     @Attachment
     @Description("Positive Registration test")
-    @Test(groups = {"positive"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"positive","smoke"}, retryAnalyzer = Retry.class)
     public void positiveRegistrationTests() throws IndexOutOfBoundsException {
         loginPage.clickButtonEntrance();
         registrationPage.clickRegistrationLink();
@@ -22,8 +22,5 @@ import utils.Retry;
         registrationPage.clickCheckBox();
         registrationPage.clickRegistrationButton();
     Assert.assertTrue(registrationPage.isDisplayedValidationMessage(),"       Такой пользователь уже зарегистрирован       ");
-        }
-    @Override
-    public void waitForPageLoaded() {
     }
 }

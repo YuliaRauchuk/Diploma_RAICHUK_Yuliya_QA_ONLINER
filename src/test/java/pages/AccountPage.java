@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 
     private final static By NEXT_BUTTON = By.xpath("//div//button[@type='submit']");
     private final static By USER_VALIDATION_MESSAGE = By.xpath("//div[@class='auth-form__line auth-form__line_condensed']");
-    private final static By PASSWORD_RECOVERY = By.xpath("//*[@id='auth-container']/div/div[2]/div/form/div[5]/div[2]/a");
+    private final static By PASSWORD_RECOVERY = By.xpath("//*[@id='auth-container']//a[@href='https://profile.onliner.by/recover-password']");
     private final static By EMAIL = By.xpath("//input[@placeholder='Ник или e-mail']");
     private final static By PASSWORD = By.xpath("//div//input[@type='password']");
     private final static By ERROR_VALIDATION_MESSAGE = By.xpath("//div[@class='auth-form__description auth-form__description_error auth-form__description_base auth-form__description_extended-other']");
@@ -23,19 +23,15 @@ import org.openqa.selenium.WebDriver;
         }
 
     @Override
-        public String getCurrentUrl() {
-        return null;
-    }
-    @Override
     protected void waitForElementDisplayed(By locator) {
         super.waitForElementDisplayed(locator);
         }
 
-        @Step
+    @Step("Setting Email Input")
     public void setEmailInput() {
         log.info("Setting Email Tab Input");
         driver.findElement(EMAIL).sendKeys("!@#$%^&*()_{++++++_)(*&^%$#@");
-        }
+    }
     @Step("Setting Password Input")
     public void setPasswordInput() {
          log.info("Setting Password Input");
@@ -55,13 +51,13 @@ import org.openqa.selenium.WebDriver;
     public boolean isDisplayedErrorValidationMessage() {
         log.info("Displayed Error Validation Message");
         driver.findElement(ERROR_VALIDATION_MESSAGE).isDisplayed();
-       return true;
+        return true;
    }
    @Step("Displayed Validation Message")
    public boolean isDisplayedPrimaryValidationMessage() {
-         log.info("Displayed Validation Message");
-         driver.findElement(PRIMARY_VALIDATION_MESSAGE).isDisplayed();
-         return true;
+        log.info("Displayed Validation Message");
+        driver.findElement(PRIMARY_VALIDATION_MESSAGE).isDisplayed();
+        return true;
     }
    @Step("Click Password Recovery")
     public void clickPasswordRecovery() {
@@ -83,10 +79,10 @@ import org.openqa.selenium.WebDriver;
           log.info("Click Next Button");
           driver.findElement(NEXT_BUTTON).click();
     }
-        @Step("Displayed User Validation Message")
-        public boolean isDisplayedUserValidationMessage() {
-            log.info("Displayed User Validation Message");
-            driver.findElement(USER_VALIDATION_MESSAGE).isDisplayed();
-            return true;
+    @Step("Displayed User Validation Message")
+    public boolean isDisplayedUserValidationMessage() {
+          log.info("Displayed User Validation Message");
+          driver.findElement(USER_VALIDATION_MESSAGE).isDisplayed();
+          return true;
         }
     }

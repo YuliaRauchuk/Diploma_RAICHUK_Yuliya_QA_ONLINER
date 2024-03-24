@@ -20,6 +20,7 @@ public class GoogleAccountPage extends BasePage {
     public GoogleAccountPage(WebDriver driver) {
         super(driver);
     }
+
     @Step("Setting Gmail Search Tab")
     public void clickGmailOnliner() {
         log.info("Setting Gmail Search Tab");

@@ -24,19 +24,14 @@ import org.openqa.selenium.WebDriver;
     //закрываеет карзину
     private final By ITEM_EMPTY_BASKET = By.xpath("//div[@class='cart-message__title cart-message__title_big']");
     //пустая карзина
-    private final By CATALOG_LINK = By.xpath("//div//a[@href='https://catalog.onliner.by']");
 
-        public BasketPage(WebDriver driver) {
+
+    public BasketPage(WebDriver driver) {
             super(driver);
         }
 
-        @Override
-        public String getCurrentUrl() {
-
-            return null;
-        }
-        @Step("Displayed Basket Tab")
-    public boolean isDisplayedBasketTabDisplayed() {
+    @Step("Displayed Basket Tab")
+    public boolean isDisplayedBasketTab() {
         log.info("Displayed Basket Tab");
         driver.findElement(BASKET_TAB).isDisplayed();
         return false;
@@ -55,20 +50,20 @@ import org.openqa.selenium.WebDriver;
     }
 
     @Step("Displayed Validation Message")
-    public boolean isValidationMessageDisplayed() {
+    public boolean isDisplayedValidationMessage() {
         log.info("Displayed Validation Message");
         driver.findElement(DEFAULT_VALIDATION_MESSAGE).isDisplayed();
-        return true;
+        return false;
     }
 
-    @Step("Check Cart Remove Button")
+    @Step("Click Cart Remove Button")
     public void clickCartRemoveButton() {
-        log.info("Check Cart Remove Button");
+        log.info("Click Cart Remove Button");
         driver.findElement(CART_REMOVE_BUTTON).click();
     }
 
     @Step("Displayed Delete Validation Message")
-    public boolean isDeleteValidationMessageDisplayed() {
+    public boolean isDisplayedDeleteValidationMessage() {
         log.info("Displayed Delete Validation Message");
         driver.findElement(DELETE_VALIDATION_MESSAGE).isDisplayed();
         return false;
@@ -87,15 +82,9 @@ import org.openqa.selenium.WebDriver;
     }
 
     @Step("Displayed Item Empty Basket")
-    public boolean isItemEmptyBasketDisplayed() {
+    public boolean isDisplayedItemEmptyBasket() {
         log.info("Displayed Item Empty Basket");
         driver.findElement(ITEM_EMPTY_BASKET).isDisplayed();
         return false;
-    }
-
-    @Step("Click Catalog Link")
-    public void clickCatalogLink() {
-        log.info("Click Catalog Link");
-        driver.findElement(CATALOG_LINK).click();
     }
 }
