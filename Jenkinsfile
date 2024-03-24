@@ -1,18 +1,28 @@
 pipeline {
     agent any
 
-
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "M3"
     }
-
+    parameters {
+     gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
+     string(name: 'SUITE_NAME', defaultValue: 'smoke.xml')
+     choice(choices: ['chrome', 'fireFox'], description: 'Select a browser', name: 'BROWSER',)
+     booleanParam (
+                   defaultValue: false,
+                   description: 'Headless',
+                   name: 'HEADLESS')
+    }
 
     stages {
         stage('Run Selenium Tests') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/YuliaRauchuk/Diploma_RAICHUK_Yuliya_QA_ONLINER'
+                 git branch: "${params.BRANCH}", url: 'https://github.com/YuliaRauchuk/Diploma_RAICHUK_Yuliya_QA_ONLINER'
+
+                // Run Maven on a Unix agent.
+                bat "mvn -Dmaven.test.failure.ignore=true -DsuiteXmlFile=${params.SUITE_NAME} -Dbrowser=${params.BROWSER} -Dheadless=${params.HEADLESS} clean test"
 
                 // Run Maven on an agent.
                 bat "mvn -Dmaven.test.failure.ignore=true clean test"
