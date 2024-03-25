@@ -11,7 +11,7 @@ import utils.Retry;
     public class AccountTest extends BaseTest {
     @Attachment
     @Description("Negative Account test")
-    @Test(groups = {"negative","smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative","Smoke"}, retryAnalyzer = Retry.class)
     public void negativeAccountTests() {
         loginPage.clickButtonEntrance();
         accountPage.setEmailInput();
@@ -22,7 +22,7 @@ import utils.Retry;
     }
     @Attachment
     @Description("Negative Test Empty Data")
-    @Test(groups = {"negative","smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative","Smoke"}, retryAnalyzer = Retry.class)
     public void negativeTestsEmptyData() {
         loginPage.clickButtonEntrance();
         accountPage.setEmailEmptyInput();
@@ -33,7 +33,7 @@ import utils.Retry;
         }
     @Attachment
     @Description("Negative Test Password Recovery" )
-    @Test(groups = {"negative","smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative","Smoke"}, retryAnalyzer = Retry.class)
     public void negativeTestPasswordRecovery() {
         loginPage.clickButtonEntrance();
         accountPage.clickPasswordRecoveryLink();

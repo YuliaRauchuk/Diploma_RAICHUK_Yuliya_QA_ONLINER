@@ -14,7 +14,7 @@ public class AddProductBasketTest extends BaseTest {
     @Attachment
     @Step
     @Description("Positive Search Test Product. Close Iframe")
-    @Test(groups = {"positive","smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"positive","Smoke"}, retryAnalyzer = Retry.class)
     public void positiveSearchTestProduct() throws IndexOutOfBoundsException {
         onlinerPage.isDisplayedOnlinerLogo();
         productPage.clickCatalogLink();
@@ -28,7 +28,7 @@ public class AddProductBasketTest extends BaseTest {
     @Attachment
     @Step
     @Description("Positive Test Number Products In Basket")
-    @Test(groups = {"positive","smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"positive","Smoke"}, retryAnalyzer = Retry.class)
     public void positiveTestNumberProductsInBasket() throws IndexOutOfBoundsException {
         onlinerPage.isDisplayedOnlinerLogo();
         productPage.clickCatalogLink();
@@ -44,7 +44,7 @@ public class AddProductBasketTest extends BaseTest {
     @Attachment
     @Step
     @Description("Negative Test Promo Code In Basket")
-    @Test(groups = {"negative","smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative","Smoke"}, retryAnalyzer = Retry.class)
     public void negativeTestPromoCodeInBasket() throws IndexOutOfBoundsException {
         onlinerPage.isDisplayedOnlinerLogo();
         productPage.clickTVLink();
@@ -60,7 +60,7 @@ public class AddProductBasketTest extends BaseTest {
     @Attachment
     @Step
     @Description("Positive Delete Products From Basket")
-    @Test(groups = {"positive","smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"positive","Smoke"}, retryAnalyzer = Retry.class)
     public void positiveTestDeleteProductsFromBasket() throws IndexOutOfBoundsException {
         onlinerPage.isDisplayedOnlinerLogo();
         productPage.clickTVLink();

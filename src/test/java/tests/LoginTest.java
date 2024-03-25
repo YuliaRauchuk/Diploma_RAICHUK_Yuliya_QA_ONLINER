@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
 
     @Attachment
     @Description("Positive Login test")
-    @Test(groups = {"positive","smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"positive","Smoke"}, retryAnalyzer = Retry.class)
     public void positiveLoginTests() throws IndexOutOfBoundsException {
         loginPage.clickButtonEntrance();
         loginPage.setEmailInput(EMAIL);
@@ -22,7 +22,7 @@ public class LoginTest extends BaseTest {
 
     @Attachment
     @Description("Negative Login test")
-    @Test(groups = {"negative","smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative","Smoke"}, retryAnalyzer = Retry.class)
     public void negativeLoginTests() throws IndexOutOfBoundsException {
         loginPage.clickButtonEntrance();
         accountPage.setEmailInput();
@@ -33,7 +33,7 @@ public class LoginTest extends BaseTest {
 
     @Attachment
     @Description("Negative Test Account Is Not Registered")
-    @Test(groups = {"negative","smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative","Smoke"}, retryAnalyzer = Retry.class)
     public void negativeTestAccountIsNotRegistered() throws IndexOutOfBoundsException {
         loginPage.clickButtonEntrance();
         accountPage.clickPasswordRecovery();

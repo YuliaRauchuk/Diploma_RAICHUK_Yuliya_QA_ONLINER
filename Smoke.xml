@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Positive Tests" parallel="classes" thread-count="2">
-    <test name="Positive tests">
+<suite name="Smoke Tests" parallel="classes" thread-count="2">
+    <test name="Smoke tests">
         <groups>
             <run>
-                <include name="smoke"/>
+                <include name="SmokeTests"/>
             </run>
         </groups>
         <packages>
             <package name="tests"/>
         </packages>
     </test>
-    <test name="tests on firefox">
+    <test name="Tests on Firefox">
         <parameter name="browser" value="firefox"/>
         <groups>
             <run>
-                <include name="smoke"/>
+                <include name="SmokeTests"/>
             </run>
         </groups>
         <packages>

@@ -12,7 +12,7 @@ import utils.Retry;
 
     @Attachment
     @Description("Negative Sorting Test")
-    @Test(groups = {"negative","smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"negative","Smoke"}, retryAnalyzer = Retry.class)
     public void negativeSortingTests() throws IndexOutOfBoundsException {
         onlinerPage.isDisplayedOnlinerLogo();
         productPage.clickCatalogLink();
@@ -25,7 +25,7 @@ import utils.Retry;
     }
     @Attachment
     @Description("Positive Sorting Test")
-    @Test(groups = {"positive","smoke"}, retryAnalyzer = Retry.class)
+    @Test(groups = {"positive","Smoke"}, retryAnalyzer = Retry.class)
     public void positiveSortingTests() throws IndexOutOfBoundsException {
         onlinerPage.isDisplayedOnlinerLogo();
         productPage.clickCatalogLink();
