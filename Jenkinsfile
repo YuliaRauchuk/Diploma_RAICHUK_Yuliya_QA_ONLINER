@@ -19,7 +19,7 @@ pipeline {
         stage('Run Selenium Tests') {
             steps {
                 // Get some code from a GitHub repository
-                 git branch: "${params.BRANCH}", url: 'https://github.com/YuliaRauchuk/Diploma_RAICHUK_Yuliya_QA_ONLINER/f'
+                 git branch: "${params.BRANCH}", url: 'https://github.com/YuliaRauchuk/Diploma_RAICHUK_Yuliya_QA_ONLINER'
 
                 // Run Maven on a Unix agent.
                 bat "mvn -Dmaven.test.failure.ignore=true -DsuiteXmlFile=${params.SUITE_NAME} -Dbrowser=${params.BROWSER} -Dheadless=${params.HEADLESS} clean test"
