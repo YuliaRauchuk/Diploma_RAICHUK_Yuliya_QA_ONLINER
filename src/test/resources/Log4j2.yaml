@@ -1,38 +1,48 @@
 #https://springframework.guru/log4j-2-configuration-using-yaml/
 #https://logging.apache.org/log4j/2.x/manual/configuration.html
 Configuration:
-  status: INFO
-  Properties:
-    Property:
-      - name: "DefaultPattern"
-        value: "%d{yyyy-MM-dd HH:mm:ss.SSS} %level [%t] [%c] - %msg%n"
-      - name: "Pattern2"
-        value: "%d{yyyy-MM-dd} %level - %msg%n"
-  Appenders:
+  status: warn
+  name: YAMLConfigTest
+  properties:
+    property:
+      name: filename
+      value: target/test-yaml.log
+  thresholdFilter:
+    level: debug
+  appenders:
     Console:
-      name: consoleAppenders
+      name: STDOUT
       target: SYSTEM_OUT
       PatternLayout:
-        Pattern: ${DefaultPattern}
+        Pattern: "%m%n"
     File:
-      name: fileAppender
-      fileName: "target/tests.log"
+      name: File
+      fileName: ${filename}
       PatternLayout:
-        Pattern: ${Pattern2}
+        Pattern: "%d %p %C{1.} [%t] %m%n"
+      Filters:
+        ThresholdFilter:
+          level: error
+
   Loggers:
     logger:
-      - name: consoleLogger
-        additivity: true
+      -
+        name: org.apache.logging.log4j.test1
+        level: debug
+        additivity: false
+        ThreadContextMapFilter:
+          KeyValuePair:
+            key: test
+            value: 123
         AppenderRef:
-          ref: consoleAppender
-      - name: fileLogger
+          ref: STDOUT
+      -
+        name: org.apache.logging.log4j.test2
+        level: debug
         additivity: false
         AppenderRef:
-          ref: fileAppender
+          ref: File
     Root:
-      level: DEBUG
+      level: error
       AppenderRef:
-        - ref: consoleAppender
-          level: DEBUG
-        - ref: fileAppender
-          level: INFO
+        ref: STDOUT
